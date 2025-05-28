@@ -1,177 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zero to Rend - Tela de Usuário</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
-      color: #f4f4f4;
-      padding: 1rem;
-      padding-bottom: 4rem; /* Espaço para o rodapé */
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .card {
-      background: #1c1c1c;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-    }
-
-    .stats {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 0.5rem;
-    }
-
-    .bar {
-      height: 8px;
-      background: #333;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 4px;
-    }
-
-    .bar-fill {
-      height: 100%;
-    }
-
-    .actions, .menu {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    button {
-      background: #222;
-      color: #ffd700;
-      padding: 0.6rem 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #ffd700;
-      color: #111;
-    }
-
-    .character {
-      display: flex;
-      justify-content: center;
-      margin: 1rem 0;
-    }
-
-    .character img {
-      width: 150px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-around;
-      background: #1a1a1a;
-      padding: 0.5rem;
-      border-radius: 10px;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-    }
-
-    footer button {
-      font-size: 0.8rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to Rend - Tela de Usuário</title>
+    <link rel="stylesheet" href="styledemo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div>👤 <strong>Ayano30k</strong></div>
-    <div>💰 <strong>3.000RC</strong> | 📈 Nível 1</div>
-  </header>
+    <header>
+        <div class="header-left">
+            <button class="hamburger-menu" id="hamburger-toggle">
+                <i class="fas fa-bars"></i> </button>
+            <div class="profile">
+                <i class="fas fa-user user-icon-fa"></i>
+                <strong>Ayano30k</strong>
+            </div>
+        </div>
+        <div class="resources">
+            <i class="fas fa-coins coin-icon-fa"></i>
+            <strong><span id="resource-coins">3.000</span> RC</strong>
+            <i class="fas fa-chart-line level-icon-fa"></i>
+            Nível <span id="user-level">1</span>
+        </div>
+    </header>
 
-  <div class="card">
-    <h3>📆 Dia 4 | ☀️ Manhã</h3>
-    <p>Você acorda com fome, mas cheio de determinação. O aluguel bate à porta.</p>
-    <div class="stats">
-      <div>
-        🔋 Energia
-        <div class="bar"><div class="bar-fill" style="width: 60%; background: #00ffcc;"></div></div>
-      </div>
-      <div>
-        ❤️ Saúde
-        <div class="bar"><div class="bar-fill" style="width: 100%; background: #ff4444;"></div></div>
-      </div>
-      <div>
-        🍽️ Fome
-        <div class="bar"><div class="bar-fill" style="width: 20%; background: #ffaa00;"></div></div>
-      </div>
-    </div>
-  </div>
+    <main>
+        <section class="card day-status">
+            <h3><i class="fas fa-calendar-alt"></i> Dia <span id="day-number">4</span> | <i class="fas fa-sun"></i> Manhã</h3>
+            <p>Você acorda com fome, mas cheio de determinação. O aluguel bate à porta.</p>
+        </section>
 
-  <div class="character">
-    <img src="https://i.pinimg.com/736x/49/cd/4a/49cd4a14a5145ddfe0357b1bfb0a561d.jpg" alt="Personagem" />
-  </div>
+        <section class="character-card box-topzera">
+            <img src="https://i.pinimg.com/736x/49/cd/4a/49cd4a14a5145ddfe0357b1bfb0a561d.jpg" alt="Personagem" class="character-image">
+        </section>
 
-  <div class="card actions">
-    <button>🛒 Vender na Rua</button>
-    <button>🏪 Visitar Mercado</button>
-    <button>📚 Estudar Finanças</button>
-    <button>🛏️ Dormir</button>
-  </div>
+        <section class="card actions-card">
+            <button class="action-button sell menu-button"><i class="fas fa-shopping-cart"></i> Vender</button>
+            <button class="action-button market menu-button"><i class="fas fa-store"></i> Visitar Mercado</button>
+        </section>
 
-  <div class="card menu">
-    <button>📦 Inventário</button>
-    <button>📈 Finanças</button>
-    <button>🧠 Habilidades</button>
-    <button>🧍 Vida Pessoal</button>
-    <button>🌍 Mapa</button>
-  </div>
+        <nav class="menu-card" id="main-menu">
+            <button class="menu-button inventory"><i class="fas fa-box"></i> Inventário</button>
+            <button class="menu-button skills"><i class="fas fa-brain"></i> Habilidades</button>
+            <button class="menu-button personal-life"><i class="fas fa-user-friends"></i> Vida Pessoal</button>
+            <button class="menu-button map"><i class="fas fa-map"></i> Mapa</button>
+            <button class="menu-button home"><i class="fas fa-home"></i> Início</button>
+            <button class="menu-button missions"><i class="fas fa-scroll"></i> Missões</button>
+            <button class="menu-button business"><i class="fas fa-briefcase"></i> Empreendimentos</button>
+            <button class="menu-button settings"><i class="fas fa-cog"></i> Config.</button>
+        </nav>
 
-  <div class="card">
-    <h4>🔔 Eventos</h4>
-    <ul>
-      <li>📣 Mercado de eletrônicos em queda! Hora de comprar barato.</li>
-      <li>🎁 Você ganhou um bônus de +100RC por completar 3 vendas seguidas!</li>
-    </ul>
-  </div>
+        <section class="card events-card">
+            <h4 class="card-title"><i class="fas fa-bell"></i> Eventos</h4>
+            <ul class="event-list">
+                <li><i class="fas fa-bullhorn"></i> Mercado de eletrônicos em queda! Hora de comprar barato.</li>
+                <li><i class="fas fa-gift"></i> Você ganhou um bônus de +100RC por completar 3 vendas seguidas!</li>
+            </ul>
+        </section>
+    </main>
 
-  <footer>
-    <button>🏠 Início</button>
-    <button>📜 Missões</button>
-    <button>💼 Empreendimentos</button>
-    <button>👥 Contatos</button>
-    <button>⚙️ Config.</button>
-  </footer>
+    <footer class="vie-pcTamblete">
+       
+    </footer>
 
-  <script>
-    // Aqui você pode adicionar lógicas JS, como eventos de clique
-    document.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        alert(`Ação: ${btn.innerText}`);
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
